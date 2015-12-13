@@ -4,11 +4,13 @@
   "version": "1.0.0",
   "dependencies": {
     "andlog": "^1.0.0",
+    "gh-pages": "^0.8.0",
     "history": "1.13.x",
-    "react-dom": "^0.14.3",
-    "react-router": "^1.0.2",
+    "lodash.debounce": "^3.1.1",
     "react": "^0.14.3",
+    "react-dom": "^0.14.3",
     "react-redux": "^4.0.0",
+    "react-router": "^1.0.2",
     "redux": "^3.0.4",
     "redux-form": "^3.1.7",
     "redux-logger": "^2.1.4",
@@ -45,9 +47,6 @@
   "license": "ISC",
   "main": "index.js",
   "pre-commit": [
-    "lint",
-    "validate",
-    "test"
   ],
   "private": true,
   "scripts": {
@@ -55,6 +54,7 @@
     "lint": "eslint --ignore-path .gitignore .",
     "start": "webpack-dev-server",
     "test": "echo 'no tests'",
-    "validate": "npm ls >/dev/null"
+    "validate": "npm ls >/dev/null",
+    "deploy": "npm run build && gh-pages -d public"
   }
 }

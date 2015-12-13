@@ -4,7 +4,11 @@ import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 
 export default function configureStore(initialState = {}) {
-  const logger = createLogger();
+  const logger = createLogger({
+    predicate(getState, action) {
+      return action.type !== 'TIMESTEP';
+    }
+  });
   const createStoreWithMiddleware = applyMiddleware(
     thunk,
     logger
